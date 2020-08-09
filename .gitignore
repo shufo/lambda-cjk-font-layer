@@ -1,0 +1,5 @@
+*.zip
+.fonts
+.fontconfig
+target
+.bash_history
