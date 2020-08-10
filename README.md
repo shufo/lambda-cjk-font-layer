@@ -38,7 +38,7 @@ If you are using headless chrome on lambda by [chrome-aws-lambda](https://github
 you can set `HOME` environment variable as `/opt/fonts` and headless chrome will refers fonts as expected.
 
 
-## Example
+## Deployment
 
 see `example/main.tf`
 
