@@ -2,6 +2,12 @@
 
 A script to produce lambda layer including cjk fonts
 
+Below is font rendering example in pdf generated with [lambda-pdf-generator](https://github.com/shufo/lambda-pdf-generator)
+
+![image](https://user-images.githubusercontent.com/1641039/89757459-474ebb80-db20-11ea-811f-707f37e74661.png)
+![image](https://user-images.githubusercontent.com/1641039/89757536-8715a300-db20-11ea-8c5f-d452febbbc0f.png)
+![image](https://user-images.githubusercontent.com/1641039/89757595-af9d9d00-db20-11ea-97d6-b5ecd41d7e6e.png)
+
 ## build
 
 To build CJK font layer, executing
