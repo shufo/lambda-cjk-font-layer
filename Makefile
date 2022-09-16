@@ -22,8 +22,8 @@ endif
 build-ttc: ## build-ttc and push nginx image to ECR : ## make build-ttc
 	make clean
 	mkdir -p .fonts .fontconfig
-	[ ! -f ./.fonts/NotoSansCJK-Regular.ttc ] && wget -N https://github.com/googlefonts/noto-cjk/raw/master/NotoSansCJK-Regular.ttc -P .fonts/
-	[ ! -f ./.fonts/NotoSerifCJK-Regular.ttc ] && wget -N https://github.com/googlefonts/noto-cjk/raw/master/NotoSerifCJK-Regular.ttc -P .fonts/
+	[ ! -f ./.fonts/NotoSansCJK-Regular.ttc ] && wget -N https://github.com/googlefonts/noto-cjk/raw/main/Sans/OTC/NotoSansCJK-Regular.ttc -P .fonts/
+	[ ! -f ./.fonts/NotoSerifCJK-Regular.ttc ] && wget -N https://github.com/googlefonts/noto-cjk/raw/main/Serif/OTC/NotoSerifCJK-Regular.ttc -P .fonts/
 	docker run -it -u root -e HOME=/root -v $(shell pwd):/root -w /root --entrypoint sh lambci/lambda:python3.6 -c "fc-cache -fv && grep Noto /var/cache/fontconfig/* | cut -d' ' -f 3 | xargs -i cp {} .fontconfig/"
 	mkdir -p target/fonts
 	cp -fR .fonts .fontconfig target/fonts/
@@ -37,8 +37,8 @@ endif
 build-ttc-cache:
 	make clean
 	mkdir -p .fonts .fontconfig
-	[ ! -f ./.fonts/NotoSansCJK-Regular.ttc ] && wget -N https://github.com/googlefonts/noto-cjk/raw/master/NotoSansCJK-Regular.ttc -P .fonts/
-	[ ! -f ./.fonts/NotoSerifCJK-Regular.ttc ] && wget -N https://github.com/googlefonts/noto-cjk/raw/master/NotoSerifCJK-Regular.ttc -P .fonts/
+	[ ! -f ./.fonts/NotoSansCJK-Regular.ttc ] && wget -N https://github.com/googlefonts/noto-cjk/raw/main/Sans/OTC/NotoSansCJK-Regular.ttc -P .fonts/
+	[ ! -f ./.fonts/NotoSerifCJK-Regular.ttc ] && wget -N https://github.com/googlefonts/noto-cjk/raw/main/Serif/OTC/NotoSerifCJK-Regular.ttc -P .fonts/
 	docker run -it -u root -e HOME=/root -v $(shell pwd):/root -w /root --entrypoint sh lambci/lambda:python3.6 -c "fc-cache -fv && grep Noto /var/cache/fontconfig/* | cut -d' ' -f 3 | xargs -i cp {} .fontconfig/"
 
 
@@ -50,8 +50,8 @@ endif
 build-noto: ## build-noto and push nginx image to ECR : ## make build-noto
 	make clean
 	mkdir -p .fonts .fontconfig
-	[ ! -f ./.fonts/NotoSansCJK$(word 1, $(RUN_ARGS))-$(word 2, $(RUN_ARGS) Regular).otf ] && wget -N https://github.com/googlefonts/noto-cjk/raw/master/NotoSansCJK$(word 1, $(RUN_ARGS))-$(word 2, $(RUN_ARGS) Regular).otf -P .fonts/
-	[ ! -f ./.fonts/NotoSerifCJK$(word 1, $(RUN_ARGS))-$(word 2, $(RUN_ARGS) Regular).otf ] && wget -N https://github.com/googlefonts/noto-cjk/raw/master/NotoSerifCJK$(word 1, $(RUN_ARGS))-$(word 2, $(RUN_ARGS) Regular).otf -P .fonts/
+	[ ! -f ./.fonts/NotoSansCJK$(word 1, $(RUN_ARGS))-$(word 2, $(RUN_ARGS) Regular).otf ] && wget -N https://github.com/googlefonts/noto-cjk/raw/main/Sans/OTC/NotoSansCJK$(word 1, $(RUN_ARGS))-$(word 2, $(RUN_ARGS) Regular).otf -P .fonts/
+	[ ! -f ./.fonts/NotoSerifCJK$(word 1, $(RUN_ARGS))-$(word 2, $(RUN_ARGS) Regular).otf ] && wget -N https://github.com/googlefonts/noto-cjk/raw/main/Serif/OTC/NotoSerifCJK$(word 1, $(RUN_ARGS))-$(word 2, $(RUN_ARGS) Regular).otf -P .fonts/
 	docker run -it -u root -e HOME=/root -v $(shell pwd):/root -w /root --entrypoint sh lambci/lambda:python3.6 -c "fc-cache -fv && grep Noto /var/cache/fontconfig/* | cut -d' ' -f 3 | xargs -i cp {} .fontconfig/"
 	mkdir -p target/fonts
 	cp -fR .fonts .fontconfig target/fonts/
